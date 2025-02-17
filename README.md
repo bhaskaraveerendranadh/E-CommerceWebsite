@@ -17,7 +17,7 @@ A fully responsive e-commerce website built with modern web technologies.
 - **Frontend:**
   - HTML5
   - CSS3
-  - JavaScript (ES6+)
+  - JavaScript 
   - RESTful APIs integration
 
 ## 🚀 Getting Started
