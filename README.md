@@ -23,22 +23,22 @@ A fully responsive e-commerce website built with modern web technologies.
 
 ##  Screenshots of the website
 ### 🔐 Login Page
-![Login Page](img/Login.png "User Login Interface")
+![Login Page](img\Login.png "User Login Interface")
 
 ### ✍️ Register Page
-![Register Page](img/Register.png "User Registration Form")
+![Register Page](img\register.png "User Registration Form")
 
 ### ℹ️ About Page
-![About Page](img/About.png "About Us Section")
+![About Page](img\about.png "About Us Section")
 
 ### 🛍️ Product View
-![Product View](img/Product-view.png "Product Details Page")
+![Product View](img\productview.png "Product Details Page")
 
 ### 🛒 Shopping Cart
-![Shopping Cart](img/Cart.png "Shopping Cart View")
+![Shopping Cart](img\cart.png "Shopping Cart View")
 
 ### ✅ Order Placed
-![Order Confirmation](img/Order-placed.png "Order Success Page")
+![Order Confirmation](img\orderplaced.png "Order Success Page")
 
 ### Prerequisites
 - Web browser
