@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | QuickMart</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/login.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container-fluid d-flex justify-content-center align-items-center vh-100">
+        <div class="login-container text-center">
+            <!-- Logo Section -->
+            <div class="logo-container">
+                <img src="img/logo.png" alt="ShopEase Logo">
+            </div>
+
+            <!-- Login Form -->
+            <div class="box p-4">
+                <h2 class="mb-4">Welcome Back!</h2>
+                <p class="mb-3 text-muted">Sign in to continue shopping</p>
+
+                <form id="loginForm">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fa fa-envelope"></i></span>
+                            <input type="email" class="form-control" id="email" placeholder="Email Address" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fa fa-lock"></i></span>
+                            <input type="password" class="form-control" id="password" placeholder="Password" minlength="6" required>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary mt-3">Login</button>
+
+                    <div class="d-flex justify-content-between mt-3">
+                        <button type="button" class="btn btn-link text-muted" id="registerButton">Register</button>
+                        <button type="button" class="btn btn-link text-muted">Forgot Password?</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
+    
+    <script>
+        const loginForm = document.getElementById('loginForm');
+        const registerButton = document.getElementById('registerButton');
+
+        loginForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value.trim();
+
+            const storedUser = JSON.parse(localStorage.getItem('user'));
+
+            if (!storedUser) {
+                alert('No registered user found. Please register first.');
+                return;
+            }
+
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert('Invalid email format.');
+                return;
+            }
+
+            if (password.length < 6) {
+                alert('Password must be at least 6 characters long.');
+                return;
+            }
+
+            if (email === storedUser.email && password === storedUser.password) {
+                alert('Login successful');
+                window.location.href = 'about.html';
+            } else {
+                alert('Invalid email or password');
+            }
+        });
+
+        registerButton.addEventListener('click', function() {
+            window.location.href = 'signup.html';
+        });
+    </script>
+</body>
+</html>

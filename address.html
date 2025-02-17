@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shipping Address | E-Commerce Website</title>
+    <!-- Favicon -->
+    <link rel="icon" href="https://yt3.ggpht.com/a/AGF-l78km1YyNXmF0r3-0CycCA0HLA_i6zYn_8NZEg=s900-c-k-c0xffffffff-no-rj-mo" type="image/gif" sizes="16x16">
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/4a3b1f73a2.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: #f4f6f8;
+            min-height: 100vh;
+        }
+        #header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            margin-bottom: -50px; /* Added space below header */
+        }
+        /* Form Container Styles */
+        .form-container {
+            max-width: 600px;
+            margin: 80px auto; /* Increased top margin */
+            padding: 30px;
+            border-radius: 12px;
+            background: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Main Content Area */
+        main {
+            padding-top: 30px; /* Added padding to push content down */
+        }
+
+        /* Adjust Header Spacing */
+        #header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            margin-bottom: 0px; /* Increased bottom margin */
+        }
+        /* Form Elements */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #34495e;
+            font-weight: 500;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e1e8ed;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .required::after {
+            content: "*";
+            color: #e74c3c;
+            margin-left: 4px;
+        }
+
+        .error {
+            color: #e74c3c;
+            font-size: 12px;
+            margin-top: 5px;
+            display: none;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            background: #3498db;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background: #2980b9;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header Section -->
+    <div id="header"></div>
+
+    <!-- Main Content -->
+    <main>
+        <div class="form-container">
+            <h2>Shipping Address</h2>
+            <form id="addressForm" method="POST" novalidate>
+                <div class="form-group">
+                    <label for="fullName" class="required">Full Name</label>
+                    <input type="text" id="fullName" name="fullName" pattern="[A-Za-z ]{2,50}" required>
+                    <div class="error" id="fullNameError">Please enter a valid name (letters only)</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone" class="required">Phone Number</label>
+                    <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" required>
+                    <div class="error" id="phoneError">Please enter a valid 10-digit phone number</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="email" class="required">Email</label>
+                    <input type="email" id="email" name="email" required>
+                    <div class="error" id="emailError">Please enter a valid email address</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="address1" class="required">Address Line 1</label>
+                    <input type="text" id="address1" name="address1" required>
+                    <div class="error" id="address1Error">Address is required</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="address2">Address Line 2 (Optional)</label>
+                    <input type="text" id="address2" name="address2">
+                </div>
+
+                <div class="form-group">
+                    <label for="city" class="required">City</label>
+                    <input type="text" id="city" name="city" required>
+                    <div class="error" id="cityError">City is required</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="state" class="required">State</label>
+                    <input type="text" id="state" name="state" required>
+                    <div class="error" id="stateError">State is required</div>
+                </div>
+
+                <div class="form-group">
+                    <label for="zipCode" class="required">ZIP Code</label>
+                    <input type="text" id="zipCode" name="zipCode" pattern="[0-9]{6}" required>
+                    <div class="error" id="zipCodeError">Please enter a valid 6-digit ZIP code</div>
+                </div>
+
+                <button type="submit">Submit Order</button>
+            </form>
+        </div>
+    </main>
+
+    <!-- Footer Section -->
+    <div id="footer"></div>
+
+    <!-- Scripts -->
+    <script>
+        // Load Header and Footer
+        window.addEventListener('DOMContentLoaded', function() {
+            loadComponent('header.html', 'header');
+            loadComponent('footer.html', 'footer');
+        });
+
+        function loadComponent(url, elementId) {
+            fetch(url)
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById(elementId).innerHTML = data;
+                })
+                .catch(error => console.error('Error loading component:', error));
+        }
+
+        // Form Validation
+        document.getElementById('addressForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            let isValid = true;
+            
+            // Reset errors
+            document.querySelectorAll('.error').forEach(error => error.style.display = 'none');
+
+            // Validation logic
+            const validations = {
+                fullName: /^[A-Za-z ]{2,50}$/,
+                phone: /^[0-9]{10}$/,
+                email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                zipCode: /^[0-9]{6}$/
+            };
+
+            for (const [field, pattern] of Object.entries(validations)) {
+                const element = document.getElementById(field);
+                if (!element.value.match(pattern)) {
+                    document.getElementById(`${field}Error`).style.display = 'block';
+                    isValid = false;
+                }
+            }
+
+            // Required field validation
+            ['address1', 'city', 'state'].forEach(field => {
+                const element = document.getElementById(field);
+                if (!element.value.trim()) {
+                    document.getElementById(`${field}Error`).style.display = 'block';
+                    isValid = false;
+                }
+            });
+
+            if (isValid) {
+                // Redirect to orderplaced.html
+                window.location.href = 'orderPlaced.html';
+            }
+        });
+    </script>
+</body>
+</html>

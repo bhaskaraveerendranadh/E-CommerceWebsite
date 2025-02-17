@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Buzzcart</title>
+    <link rel="stylesheet" href="about.css">
+</head>
+<body>
+    <!-- HEADER -->
+    <div id="1"></div>
+    <script>
+        load("header.html");
+        function load(url)
+        {
+            req = new XMLHttpRequest();
+            req.open("GET", url, false);
+            req.send(null);
+            document.getElementById(1).innerHTML = req.responseText;
+        }
+    </script>
+    <main class="about-container">
+        <section class="about-header">
+            <h1>Welcome to <i><b>QuickMart</b></i></h1>
+            <p>Your one-stop destination for trendy and stylish men's and women's clothing and accessories. We bring fashion and convenience to your doorstep.</p>
+            <a href="index.html" class="learn-more">Start Shopping</a>
+        </section>
+        <section class="info-cards">
+            <div class="card">
+                <p>Discover the latest styles and trends in men's clothing, from casual wear to formal attire.</p>
+            </div>
+            <div class="card">
+                <p>Shop our exclusive collection of women's clothing, designed to inspire confidence and elegance.</p>
+            </div>
+            <div class="card">
+                <p>Accessorize your look with our curated selection of bags, jewelry, and more.</p>
+            </div>
+        </section>
+
+        <div id="4"></div>
+        <section>    
+            <div class="foot">
+                <div id="containerFooter">
+                
+                    <div id="webFooter">
+                        <h3> online store </h3>
+                        <p> men clothing </p>
+                        <p> women clothing </p>
+                        <p> men accessories </p>
+                        <p> women accessories </p>
+                    </div>
+                    <div id="webFooter">
+                        <h3> helpful link </h3>
+                        <p> home </p>
+                        <p> about </p>
+                        <p> contact </p>
+                    </div>
+                    <div id="webFooter">
+                        <h3> partners </h3>
+                        <p> zara </p>
+                        <p> pantaloons </p>
+                        <p> levis </p>
+                        <p> ucb </p>
+                        <p> + many more </p>
+                    </div>
+                    <div id="webFooter">
+                        <h3> address </h3>
+                        <p> building 101 </p>
+                        <p> central avenue </p>
+                        <p> la - 902722 </p>
+                        <p> united states </p>
+                    </div>
+                </div>
+                <div id="credit"><a href="#"> © QuickMart </a> &nbsp&nbsp&nbsp | &nbsp&nbsp&nbsp <a href="#" target="_blank"> Bhaskara</a></div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

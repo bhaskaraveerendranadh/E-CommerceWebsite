@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="css\contact.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,400;0,500;0,600;0,800;1,900&amp;display=swap" rel="stylesheet">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Contact Section</title>
+</head>
+<body>
+	<!-- HEADER -->
+    <div id="1"></div>
+    <script>
+        load("header.html");
+        function load(url)
+        {
+            req = new XMLHttpRequest();
+            req.open("GET", url, false);
+            req.send(null);
+            document.getElementById(1).innerHTML = req.responseText;
+        }
+    </script>
+	<div class="container">
+		<main class="row">
+			<section class="col left">
+				<div class="contactTitle">
+					<h2>Get In Touch</h2>
+					<p>ADD THE REQUIRED DATA AND MATTER </p>
+				</div>
+				<div class="contactInfo">
+					<div class="iconGroup">
+						<div class="icon">
+							<i class="fa-solid fa-phone"></i>
+						</div>
+						<div class="details">
+							<span>Phone</span>
+							<span>+91 95845XXXXX</span>
+						</div>
+					</div>
+					<div class="iconGroup">
+						<div class="icon">
+							<i class="fa-solid fa-envelope"></i>
+						</div>
+						<div class="details">
+							<span>Email</span>
+							<span>quickmart@gmail.com</span>
+						</div>
+					</div>
+					<div class="iconGroup">
+						<div class="icon">
+							<i class="fa-solid fa-location-dot"></i>
+						</div>
+						<div class="details">
+							<span>Location</span>
+							<span>X Street, Y Road, San Fransisco</span>
+						</div>
+					</div>
+				</div>
+				<div class="socialMedia">
+					<a href="https://www.facebook.com/profile.php?id=100093405050630"><i class="fa-brands fa-facebook-f"></i></a>
+					<a href="https://x.com/bhaskarave37783"><i class="fa-brands fa-twitter"></i></a>
+					<a href="https://www.instagram.com/veerendra_mandapati/?next=%2F"><i class="fa-brands fa-instagram"></i></a>
+					<a href="https://www.linkedin.com/in/bhaskara-veerendranadh-mandapati-87a165291/"><i class="fa-brands fa-linkedin-in"></i></a>
+				</div>
+			</section>
+			<section class="col right">
+				<form class="messageForm">
+					<div class="inputGroup halfWidth">
+						<input type="text" name="" required="required">
+						<label>Your Name</label>
+					</div>
+					<div class="inputGroup halfWidth">
+						<input type="email" name="" required="required">
+						<label>Email</label>
+					</div>
+					<div class="inputGroup fullWidth">
+						<input type="text" name="" required="required">
+						<label>Subject</label>
+					</div>
+					<div class="inputGroup fullWidth">
+						<textarea required="required"></textarea>
+						<label>Say Something</label>
+					</div>
+					<div class="inputGroup fullWidth">
+						<button>Send Message</button>
+					</div>
+				</form>
+			</section>
+		</main>
+	</div>
+	<!-- FOOTER -->
+    <div id="4"></div>
+    <script>
+        load("footer.html");
+        function load(url)
+        {
+            req = new XMLHttpRequest();
+            req.open("GET", url, false);
+            req.send(null);
+            document.getElementById(4).innerHTML = req.responseText;
+        }
+    </script>
+</body>
+</html>
